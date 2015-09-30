@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<META name=VI60_defaultClientScript content=VBScript>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE></TITLE>
+<SCRIPT ID=clientEventHandlersVBS LANGUAGE=vbscript>
+<!--
+
+Sub submit1_onclick
+	msgbox 1
+	
+	FORM1.text1.value = text2.value
+	
+	'text2.value = ""
+	msgbox 2
+	FORM1.submit 
+End Sub
+
+-->
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<P><INPUT id=submit1 name=submit1 type=submit value=Submit>&nbsp;<INPUT 
+id=text2 name=text2></P>
+<FORM action="ruff.asp" id=FORM1 method=post name=FORM1>
+<P>&nbsp;</P>
+<P><INPUT id=text1 name=text1></P>
+<P><INPUT id=submit2 name=submit2 type=submit value=Submit></P>
+</FORM>
+
+</BODY>
+</HTML>
+

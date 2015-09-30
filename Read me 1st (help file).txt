@@ -1,0 +1,31 @@
+This help file is only valid for windows 9x (i.e windows 98 etc).
+Note: it may also be applicable for windows 2000,XP with little modification.
+
+1. First of all install Personal Web Server (PWS) that will run your ASP's code.
+Note: for windows 2000, install IIS.
+
+2. On advanced option, add a virtual directory (VD) for MCB's website and Shop's website folder.
+
+Note: before adding directory each time click home VD at the top of list. So that each VD is seperate VD, Not a child of each other. Also note that if you are not using the same link name used in ASP file for website then change the link on each ASP file. Or use the existing name for VD i.e mcb for MCB's website, shop for shop's website
+
+3. Create OBDC Data Source from Control Panel (on System DSN tab) for MCB's database and shop's database.
+
+Note: use data sourse name as used in ASP's file for database connectivity i.e dsnMCB for MCB's database, dsnShop for Shop's database. Or use new data sourse name but change data sourse name in each ASP file that use the database connectivity.
+
+4. Register the MyDll6.dll. Go to Ms-DOS and move control in the folder "My Dll 6 Encription & Decription" by following command:
+CD "My Dll 6 Encription & Decription"
+And use the  following command to register MyDll6.dll:
+regsvr32 MyDll6.dll
+
+5. Now start the PWS.
+
+6. Start/run the Internet Explorer.
+
+7. Type the following address on address bar.
+http://Your Computer Name/Your VD Name For MCB/Shop.
+i.e default address is following
+http://www/mcb/
+Or
+http://www/shop/
+
+Note: you chan chage computer name form network in Control Panel on Identification Tab.

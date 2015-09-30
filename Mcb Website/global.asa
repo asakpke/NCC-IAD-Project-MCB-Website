@@ -1,0 +1,11 @@
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+Sub Session_onStart
+	Session("UserID") = 0
+	Session("UserType") = 0
+	Session("AccID") = 0
+	Session("Amount") = 0
+	Session("Msg") = ""
+	'Response.Write "<br>isLogin = " & Session("isLogin")
+	'Response.Write "<br>Msg = " & Session("Msg")
+End Sub
+</SCRIPT>

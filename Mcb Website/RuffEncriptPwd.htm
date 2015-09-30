@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE></TITLE>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=vbscript>
+<!--
+
+sub frmLogin_onsubmit()
+on error resume next
+'Sub EncriptDecript
+	'msgbox 1
+	Dim OtherArr(3) 
+	Randomize 
+	TempString = ""
+	For i=0 To 3 
+		OtherArr(i) = Int((9 * Rnd)) 
+		TempString = TempString & OtherArr(i)
+	Next 		
+	'msgbox TempString
+	msgbox 1
+	ThisText = frmLogin.txtPwd.value
+	if Err.number > 0 then
+		Msgbox Err.number & " = " & Err.description   
+	end if
+	
+	document.write "<hr><h1>Original Form</h1>" & ThisText
+	For i=1 To Len(ThisText) 
+		TempNum = Asc(Mid(ThisText,i,1)) 
+		If TempNum = 13 Then 
+			TempNum = 28 
+		ElseIf TempNum = 10 Then 
+			TempNum = 29 
+		End If 
+		TempChar = Chr(TempNum - OtherArr(i Mod 4)) 
+		If TempChar = Chr(34) Then 
+			TempChar = Chr(18) 
+		End If 
+		TempString = TempString & TempChar 
+	Next 
+	document.write "<hr><h1>Encripted Form</h1>" & TempString
+	'Msgbox 1	
+	frmlogin.txtHdn.value = TempString
+	if Err.number > 0 then
+		Msgbox Err.number & " = " & Err.description   
+	end if
+	'MsgBox " = " & frmLogin.txtPwd.value
+	document.write "<hr><h1>frmLogin.txtHdn.value</h1>" & frmLogin.txtHdn.value
+	if Err.number > 0 then
+		Msgbox Err.number & " = " & Err.description   
+	end if
+'		Dim Obj 'As pjtMyDll.clsMyDll
+'		Set Obj = CreateObject("pjtMyDll6.clsMyDll6")
+'		Dim Str
+'		Str = TempString
+'		Str = Obj.Decript(CStr(Str))
+'		document.write "<hr><h1>Decripted Form</h1>" & Str
+msgbox 2
+end sub
+
+//-->
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM action="EncriptPwd.htm" method=post id=frmLogin name=frmLogin>
+Enter Login Information<BR><BR>
+Name <INPUT id=txtName name=txtName style="HEIGHT: 22px; WIDTH: 119px"><br>
+Password <INPUT id=txtPwd name=txtPwd type=password style="HEIGHT: 22px; WIDTH: 114px"><br>
+<input type=hidden id=txtHdn>
+<INPUT id=cmdSubmit name=cmdSubmit type=submit value=Login>&nbsp;
+<INPUT id=cmdReset name=cmdReset type=reset value=Reset><br><br>
+</FORM>
+</BODY>
+</HTML>

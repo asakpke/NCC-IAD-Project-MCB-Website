@@ -1,0 +1,160 @@
+<HTML>
+<HEAD>
+<META name=VI60_defaultClientScript content=VBScript>
+
+<SCRIPT ID=clientEventHandlersVBS LANGUAGE=vbscript>
+<!--
+
+'Sub cmdSubmit_onclick
+'	msgbox "cmdSubmit_onclick"
+'	if  frmLogin.txtName.value  = "" or _
+'			frmLogin.txtPwd.value  = "" then
+'			msgbox "Fill all field"
+'		Exit Sub
+'	end if
+'	
+'	if len(frmLogin.txtPwd.value ) > 15 then
+'		msgbox "Password length should be less than 16"
+'		Exit Sub
+'	end if
+'	
+'	'start
+'	Dim OtherArr(3) 
+'	Randomize 
+'	TempString = ""
+'	For i=0 To 3 
+'		OtherArr(i) = Int((9 * Rnd)) 
+'		TempString = TempString & OtherArr(i)
+'	Next 		
+'	ThisText = frmLogin.txtPwd.value 
+'	For i=1 To Len(ThisText) 
+'		TempNum = Asc(Mid(ThisText,i,1)) 
+'		If TempNum = 13 Then 
+'			TempNum = 28 
+'		ElseIf TempNum = 10 Then 
+'			TempNum = 29 
+'		End If 
+'		TempChar = Chr(TempNum - OtherArr(i Mod 4)) 
+'		If TempChar = Chr(34) Then 
+'			TempChar = Chr(18) 
+'		End If 
+'		TempString = TempString & TempChar 
+'	Next 
+'		frmLogin.txtPwd.value = TempString
+		
+		'Checking code but now it is Gooed but a problem....
+		'document.url = "content.html"
+		'***************************************************
+	'Msgbox 1	
+'	frmlogin.txtHdn.value = TempString
+'	if Err.number > 0 then
+'		Msgbox Err.number & " = " & Err.description   
+'	end if
+	'MsgBox " = " & frmLogin.txtPwd.value
+'	document.write "<hr><h1>frmLogin.txtHdn.value</h1>" & frmLogin.txtHdn.value
+'	if Err.number > 0 then
+'		Msgbox Err.number & " = " & Err.description   
+'	end if
+'		Dim Obj 'As pjtMyDll.clsMyDll
+'		Set Obj = CreateObject("pjtMyDll6.clsMyDll6")
+'		Dim Str
+'		Str = TempString
+'		Str = Obj.Decript(CStr(Str))
+'		document.write "<hr><h1>Decripted Form</h1>" & Str
+'msgbox 2
+	'end
+	'sgbox "frmLogin.txtName.value = " & frmLogin.txtName.value
+	'sgbox "frmLogin.txtPwd.value = " & frmLogin.txtPwd.value
+'//
+'End Sub
+
+Sub cmdLoin_onclick
+	'msgbox "cmdLogin"
+	
+	frmLogin.txtName.value = txtName_Ex.value 
+	frmLogin.txtPwd.value = txtPwd_Ex.value
+	
+	if  frmLogin.txtName.value  = "" or _
+			frmLogin.txtPwd.value  = "" then
+			msgbox "Fill all field"
+		Exit Sub
+	end if
+	
+	if len(frmLogin.txtPwd.value ) > 15 then
+		msgbox "Password length should be less than 16"
+		Exit Sub
+	end if
+	
+	'start
+	Dim OtherArr(3) 
+	Randomize 
+	TempString = ""
+	For i=0 To 3 
+		OtherArr(i) = Int((9 * Rnd)) 
+		TempString = TempString & OtherArr(i)
+	Next 		
+	ThisText = frmLogin.txtPwd.value 
+	For i=1 To Len(ThisText) 
+		TempNum = Asc(Mid(ThisText,i,1)) 
+		If TempNum = 13 Then 
+			TempNum = 28 
+		ElseIf TempNum = 10 Then 
+			TempNum = 29 
+		End If 
+		TempChar = Chr(TempNum - OtherArr(i Mod 4)) 
+		If TempChar = Chr(34) Then 
+			TempChar = Chr(18) 
+		End If 
+		TempString = TempString & TempChar 
+	Next 
+	frmLogin.txtPwd.value = TempString
+	
+	txtName_Ex.value  = ""
+	txtPwd_Ex.value = ""
+	
+	frmLogin.submit 
+End Sub
+
+'Sub frmLogin_onsubmit
+'	msgbox "frmLogin_onsubmit"
+'End Sub
+
+Sub cmdReset_onclick
+	txtName_Ex.value  = ""
+	txtPwd_Ex.value = ""
+End Sub
+
+-->
+</SCRIPT>
+</HEAD>
+<BODY text="red"  background="b.jpg">
+<CENTER>
+<embed src="bnr.swf" width="100" height="50"></CENTER>
+<hr>
+<DIV align=left>Enter Login Detail</DIV><br>
+<DIV align=left>Name <INPUT id=txtName_Ex name=txtName_Ex maxlength=15>&nbsp;</DIV>
+<DIV align=left></EMBED>Password <INPUT type=password id=txtPwd_Ex name=txtPwd_Ex maxlength=15></DIV><br>
+<FORM action="Login.asp" target="cont" method=post id=frmLogin name=frmLogin>
+<!--
+<FORM action="Login.asp" target="parent" method=post id=frmLogin name=frmLogin>
+-->
+<INPUT id=txtName name=txtName maxLength=15 type=hidden>
+<INPUT id=txtPwd name=txtPwd type=hidden style="HEIGHT: 22px; WIDTH: 114px" maxLength=15>
+<!--
+<INPUT id=cmdSubmit name=cmdSubmit type=submit value=Login>&nbsp;
+<INPUT id=cmdReset name=cmdReset type=reset value=Reset>
+-->
+</FORM>
+<CENTER>
+<INPUT id=cmdLoin name=cmdLogin type=button value=Login>
+<INPUT id=cmdReset name=cmdReset type=button value=Reset>
+<hr>
+<A href="frmNewCustomer.asp" target=b>New Customer</A><br><br>
+<!--
+<embed src="bnrr.swf" width=100 height=90>
+</embed><br><br>
+-->
+<IMG src="spr.gif"> 
+</CENTER>
+</BODY>
+</HTML>
